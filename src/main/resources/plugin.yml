@@ -1,0 +1,9 @@
+name: TeleportTo
+version: '${version}'
+main: me.calciumjpg.teleportto.TeleportTo
+api-version: '1.20'
+commands:
+  teleportto:
+    description: "Teleport to a player of your choice"
+    usage: "Usage: /<command> [player]"
+    aliases: ["tpt"]
