@@ -1,0 +1,9 @@
+name: TeleportTo
+version: '${version}'
+main: place.calcium.teleportto.TeleportTo
+api-version: '1.21'
+commands:
+  teleportto:
+    description: "Teleport to a player of your choice"
+    usage: "Usage: /<command> [player]"
+    aliases: ["tpt"]
