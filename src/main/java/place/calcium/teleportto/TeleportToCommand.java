@@ -9,18 +9,24 @@ import org.bukkit.entity.Player;
 public class TeleportToCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player player) {
-            if (args.length == 1) {
-                Player target = Bukkit.getPlayerExact(args[0]);
-                if (target != null) {
-                    player.sendMessage("Teleporting...");
-                    player.teleport(target);
-                    return true;
-                } else {
-                    player.sendMessage("Player not found.");
-                }
-            }
+        if (args.length != 1) { 
+            sender.sendMessage("No arguments supplied.");
+            return false;
         }
-        return false;
+
+        if (sender instanceof Player player) {
+            Player target = Bukkit.getPlayerExact(args[0]);
+            if (target == null) {
+                player.sendMessage("Player not found.");
+                return false;
+            }
+
+            player.sendMessage("Teleporting...");
+            player.teleport(target);
+            return true;
+        } else {
+            sender.sendMessage("You're not a player!");
+            return false;
+        }
     }
 }

@@ -6,4 +6,9 @@ commands:
   teleportto:
     description: "Teleport to a player of your choice"
     usage: "Usage: /<command> [player]"
-    aliases: ["tpt"]
+    aliases: [ "tpt" ]
+    permission: "teleportto.teleport"
+    permission-message: "You don't have permission to run this command!"
+permissions:
+  teleportto.teleport:
+    default: true
