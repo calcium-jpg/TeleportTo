@@ -5,6 +5,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.metadata.MetadataValue;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class TeleportToCommand implements CommandExecutor {
     @Override
@@ -19,6 +22,9 @@ public class TeleportToCommand implements CommandExecutor {
             if (target == null) {
                 player.sendMessage("Player not found.");
                 return false;
+            } else if (player.hasMetadata("donotdisturb") && target.getMetadata("donotdisturb").get(0).asBoolean()) {
+                player.sendMessage("Player cannot be teleported to!");
+                return true;
             }
 
             player.sendMessage("Teleporting...");

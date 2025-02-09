@@ -1,7 +1,7 @@
 name: TeleportTo
 version: '${version}'
 main: place.calcium.teleportto.TeleportTo
-api-version: '1.21'
+api-version: '1.17'
 commands:
   teleportto:
     description: "Teleport to a player of your choice"
@@ -9,6 +9,14 @@ commands:
     aliases: [ "tpt" ]
     permission: "teleportto.teleport"
     permission-message: "You don't have permission to run this command!"
+  toggleteleporting:
+    description: "Toggle the ability of people to teleport to you"
+    usage: "Usage: /<command>"
+    aliases: [ "tt" ]
+    permission: "teleportto.toggleteleport"
+    permission-message: "You don't have permission to run this command!"
 permissions:
   teleportto.teleport:
+    default: true
+  teleportto.toggleteleport:
     default: true
